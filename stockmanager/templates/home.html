@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="container">
+    <h5 class="mt-5">Welcome Amin,</h5>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <h5 class="card-title ml-5 mt-2"> Pricing </h5>
+                <div class="card-body ml-5 ">
+                    <p>Manage your Product Price.</p>
+                    <div class="mr-auto">
+                        <a href="{% url 'pricing' %}" class="btn btn-secondary">Goto Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-4">
+                <h5 class="card-title ml-5 mt-2"> Purchases </h5>
+                <div class="card-body ml-5 ">
+                    <p>Manage your Purchases and the returns.</p>
+                    <div class="mr-auto">
+                        <a href="{% url 'purchase' %}" class="btn btn-secondary">Goto Purchases</a>
+                        <a href="{% url 'returnPurchase' %}" class="btn gry">Purchase Returns</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-4">
+                <h5 class="card-title ml-5 mt-2"> Retails </h5>
+                <div class="card-body ml-5">
+                    <p>Manage your Sales and the Sales returns.</p>
+                    <div class="mr-auto">
+                        <a href="{% url 'retail' %}" class="btn btn-secondary">&nbsp;Goto Retails&nbsp;&nbsp;</a>
+                        <a href="{% url 'returnRetail' %}" class="btn gry">&nbsp;&nbsp;Retails Returns&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
