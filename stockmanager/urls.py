@@ -10,4 +10,6 @@ urlpatterns=[
     path('returnPurchase', views.returnPurchase, name="returnPurchase"),
     path('returnRetail', views.returnRetail, name="returnRetail"),
     path('loginPost',views.loginPost,name="loginPost"),
+    path('purchasehistory',views.purchasehistory,name="purchasehistory"),
+    path('purchasereturnhistory',views.purchasereturnhistory,name="purchasereturnhistory")
 ]

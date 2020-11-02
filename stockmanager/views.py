@@ -26,7 +26,19 @@ def pricing(request):
 def loginPost(request):
     uname = request.POST['uname']
     pwd = request.POST['pwd']
-    if(uname == "admin" and pwd == "admin"):
+    error = False
+    if((uname != "admin" or pwd != "admin")):
+        error = True
+    if(error == False):
         return render(request,'home.html')
     else:
-        return HttpResponse("Invalid Credentials")
+        mydictionary={
+            "error" : error,
+        }
+        return render(request,'index.html',mydictionary)
+        
+def purchasehistory(request):
+    return render(request,'purchaseHistory.html')
+
+def purchasereturnhistory(request):
+    return render(request,'purchaseReturnHistory.html')
