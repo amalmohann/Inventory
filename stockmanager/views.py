@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Items, Purchase
 
 # Create your views here.
 def index(request):
@@ -21,7 +22,24 @@ def returnRetail(request):
     return render(request,'returnRetail.html')
 
 def pricing(request):
-    return render(request,'pricing.html')
+    i = Items.objects.all()
+    print(i)
+    context = {
+        'i' : i
+    }
+    return render(request,'pricing.html',context)
+
+def purchasehistory(request):
+    return render(request,'purchaseHistory.html')
+
+def purchasereturnhistory(request):
+    return render(request,'purchaseReturnHistory.html')
+
+def retailhistory(request):
+    return render(request,'retailHistory.html')
+
+def salesreturnhistory(request):
+    return render(request,'RetailReturnHistory.html')
 
 def loginPost(request):
     uname = request.POST['uname']
@@ -36,9 +54,5 @@ def loginPost(request):
             "error" : error,
         }
         return render(request,'index.html',mydictionary)
-        
-def purchasehistory(request):
-    return render(request,'purchaseHistory.html')
 
-def purchasereturnhistory(request):
-    return render(request,'purchaseReturnHistory.html')
+        

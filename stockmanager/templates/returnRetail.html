@@ -1,3 +1,48 @@
 {% extends 'base.html' %}
-{% block title %} Return Retail{% endblock %}
-{% block content %} <h1 class="text-center mt-5">Return Retails</h1> {% endblock %}
+{% block title %} Sales Return {% endblock %}
+{% block content %}
+<h1 class="text-center mt-5">SALES RETURN</h1>
+<div class="container">
+    <div class="card mt-20">
+        <h5 class="card-title text-center mt-3">New Sales Return</h5>
+        <div class="card-body">
+            <form action="">
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <div class="form-group">
+                            <label for="item">Select Item:</label>
+                            <select class="form-control" id="item">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="submit">ADD</button>
+                        <button class="btn btn-danger" type="reset">CLEAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body text-center">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{% url 'saleshistory' %}">view sales history</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'salesreturnhistory' %}"> view return history </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

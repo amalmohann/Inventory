@@ -1,3 +1,88 @@
 {% extends 'base.html' %}
 {% block title %} Retails {% endblock %}
-{% block content %} <h1 class="text-center mt-5"> Retails </h1> {% endblock %}
+{% block content %}
+<h1 class="text-center mt-5"> Retails </h1>
+<div class="container mb-2">
+    <div class="card mt-20">
+        <h5 class="card-title text-center mt-3">New Sales</h5>
+        <div class="card-body">
+            <form action="">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="item">Select Item:</label>
+                        <select class="form-control" id="item">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="retail">Retail Id:</label>
+                        <select class="form-control" id="retail">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="quantity">&nbsp;</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" placeholder="QUANTITY">
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" onclick="">ADD</button>
+                        <button class="btn btn-danger" type="reset">CLEAR</button>
+                    </div>
+                </div>
+                {% if True %}
+                <div class="card mt-3">
+                    <h5 class="card-title text-center mt-3">New Sales</h5>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">PRODUCT NAME</th>
+                                    <th scope="col">RETAIL ID</th>
+                                    <th scope="col">QUANTITY</th>
+                                    <th scope="col">PRICE</th>
+                                    <th scope="col">TOTAL</th>
+                                    <th scope="col">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button class="btn btn-success" type="submit">Done</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% if True %}
+    <div class="card mt-3 mb-2">
+        <div class="card-body text-center">
+            <a href="{% url 'saleshistory' %}">view sales history</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

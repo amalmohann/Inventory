@@ -15,27 +15,16 @@
       </tr>
     </thead>
     <tbody>
+
+      {% for ea in i %}
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{forloop.counter}}</th>
+        <td> {{ea.id}} </td>
+        <td style="text-transform: capitalize;"> {{ea.item_name}} </td>
+        <td> {{ea.item_price}} </td>
         <td></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 
