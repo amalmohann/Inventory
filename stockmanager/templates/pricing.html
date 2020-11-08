@@ -3,27 +3,30 @@
 {% block content %} 
 
 <h1 class="text-center mt-5">PRODUCT PRICING</h1> 
-
+<div class="table">
 <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">PRODUCT ID</th>
         <th scope="col">PRODUCT NAME</th>
+        <th scope="col">PRODUCT ID</th>
+        <th scope="col">PRODUCT RETAIL ID</th>
+        <th scope="col">PRODUCT PRICE</th>
         <th scope="col">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
-
       {% for ea in i %}
       <tr>
         <th scope="row">{{forloop.counter}}</th>
+        <td style="text-transform: capitalize;"> {{ea.item_id}} </td>
         <td> {{ea.id}} </td>
-        <td style="text-transform: capitalize;"> {{ea.item_name}} </td>
+        <td style="text-transform: capitalize;"> {{ea.retail_id}} </td>
+        <td> {{ea.item_price}} </td>
         <td><a href="{% url 'editPrice' ea.id %}" class="btn btn-danger ml-5">Change</a></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
-
+</div>
 {% endblock %}

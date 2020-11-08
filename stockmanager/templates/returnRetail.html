@@ -3,7 +3,7 @@
 {% block content %}
 <h1 class="text-center mt-5">SALES RETURN</h1>
 <div class="container">
-    {% if submit == True %}
+    {% if returned == True %}
     <div class="row  mt-5">
         <div class="col-8 offset-2">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -47,7 +47,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="item">Select Sales ID:</label>
-                            <select class="form-control" id="retail_id" name="retail_id">
+                            <select class="form-control" id="salesid" name="salesid">
                                 {% for ea in s%}
                                     <option value="{{ea.id}}">{{ ea.id }}</option>
                                 {% endfor %}

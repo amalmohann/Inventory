@@ -8,7 +8,17 @@
     <div class="row  mt-5">
         <div class="col-8 offset-2">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Purchase Added!</strong>
+                <strong>Purchase Added!Your Purchase ID is {{pur_id}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Purchase Id is your Return Reference.</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -61,7 +71,7 @@
                           </div>
                     </div>
                     <div class="col-md-3 ">
-                        <label for="item">&nbsp;</label>
+                        <label for="item">Expiry: </label>
                         <input type="date" class="form-control" id="expiry" name="expiry" placeholder="expiry" required>
                     </div>
                     <div class="col-5 text-center">

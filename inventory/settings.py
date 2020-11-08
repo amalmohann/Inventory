@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bsync',
     'django.contrib.staticfiles',
     'stockmanager',
+    'phone_field',
 ]
 
 MIDDLEWARE = [

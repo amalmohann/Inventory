@@ -10,6 +10,7 @@
         <th scope="col">SALES ID</th>
         <th scope="col">DATE</th>
         <th scope="col">QUANTITY</th>
+        <th scope="col">REASON</th>
         <th scope="col">TOTAL</th>
       </tr>
     </thead>
@@ -21,7 +22,9 @@
         <td> {{return.sales_id}}</td>
         <td> {{return.return_date}}</td>
         <td> {{return.return_quantity}}</td>
+        <td> {{return.return_reason}}</td>
         <td> {{return.return_total}}</td>
+
       </tr>
       {% endfor %}
     </tbody>

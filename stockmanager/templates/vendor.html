@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <h5 class="card-title text-center mt-5">ADD VENDOR</h5>
+                <hr class="my-hr">
+                <form action="{% url 'vendorAdd' %}" method="POST">{% csrf_token %}
+                    <div class="col-8 offset-2">
+                        <input type="text" step="0.01" class="form-control mt-2" id="name" name="name" placeholder="VENDOR NAME" required>
+                    </div>
+                    <div class="col-8 offset-2">
+                        <input type="text" step="0.01" class="form-control mt-2" id="location" name="location" placeholder="LOCATION" required>
+                    </div>
+                    <div class="col-8 offset-2">
+                        <input type="tel" step="0.01" class="form-control mt-2" id="phone" name="phone" placeholder="PHONE" required>
+                    </div>
+                <input type="image" src="{% static 'add.png' %}" alt="Submit" height="50px" width="50px" style="margin: 50px 100px 100px 525px;"/>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <h5 class="card-title text-center mt-2">VENDOR</h5>
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">VENDOR ID</th>
+                        <th scope="col">VENDOR NAME</th>
+                        <th scope="col">VENDOR LOCATION</th>
+                        <th scope="col">VENDOR CONTACT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for vendor in v %}
+                      <tr>
+                        <th scope="row">{{forloop.counter}}</th>
+                        <td> {{vendor.id}} </td>
+                        <td> {{vendor.vendor_name}} </td>
+                        <td> {{vendor.vendor_location}} </td>
+                        <td> {{vendor.vendor_contact}} </td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+        
+    </div>
+</div>
+
+{% endblock %}

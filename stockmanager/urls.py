@@ -22,4 +22,8 @@ urlpatterns=[
     path('existingPurchase',views.existingPurchase,name="existingPurchase"),   
     path('addExistingPurchase',views.addExistingPurchase,name="addExistingPurchase"),
     path('salePost',views.salePost,name="salePost"),
+    path('salePostRetailSelect',views.salePostRetailSelect,name="salePostRetailSelect"),
+    path('itemQuantity',views.itemQuantity,name="itemQuantity"),
+    path('vendor',views.vendor,name="vendor"),
+    path('vendorAdd',views.vendorAdd,name="vendorAdd"),
     ]

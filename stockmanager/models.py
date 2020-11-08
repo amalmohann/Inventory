@@ -1,4 +1,5 @@
 from django.db import models
+from phone_field import PhoneField
 
 # Create your models here.
 
@@ -19,6 +20,7 @@ class RetailID(models.Model):
 class Vendor(models.Model):
     vendor_name = models.CharField(max_length = 100, unique=True)
     vendor_location = models.CharField(max_length = 100)
+    vendor_contact = PhoneField(blank=True, help_text='Phone Number')
     def __str__(self):
         return self.vendor_name
 
@@ -34,7 +36,7 @@ class Purchase(models.Model):
     
 
 class PurchaseReturn(models.Model):
-    purchase_id = models.ForeignKey(Purchase, on_delete = models.CASCADE)
+    purchase_id = models.ForeignKey(Purchase, on_delete = models.CASCADE, unique = True)
     return_quantity = models.FloatField()
     return_total = models.FloatField()
     return_date = models.DateTimeField(auto_now_add = True)
@@ -49,7 +51,7 @@ class Sales(models.Model):
     sales_date = models.DateTimeField(auto_now_add = True)
 
 class SalesReturn(models.Model):
-    sales_id = models.ForeignKey(Sales, on_delete = models.CASCADE)
+    sales_id = models.ForeignKey(Sales, on_delete = models.CASCADE, unique = True)
     return_quantity = models.FloatField()
     return_total = models.FloatField()
     return_date = models.DateTimeField(auto_now_add = True)
