@@ -8,37 +8,24 @@
         <th scope="col">#</th>
         <th scope="col">RETURN ID</th>
         <th scope="col">PURCHASE ID</th>
-        <th scope="col">PRODUCT NAME</th>
-        <th scope="col">BATCH</th>
         <th scope="col">DATE</th>
         <th scope="col">QUANTITY</th>
-        <th scope="col">PRICE</th>
         <th scope="col">TOTAL</th>
-        <th scope="col">&nbsp;</th>
+        <th scope="col">REASON</th>
       </tr>
     </thead>
     <tbody>
+      {% for ea in pr %}
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{forloop.counter}}</th>
+        <td> {{ea.id}} </td>
+        <td> {{ea.purchase_id}} </td>
+        <td> {{ea.return_date}} </td>
+        <td> {{ea.return_quantity}} </td>
+        <td> {{ea.return_total}} </td>
+        <td> {{ea.return_reason}} </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 {% endblock %}

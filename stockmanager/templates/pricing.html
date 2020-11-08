@@ -10,7 +10,6 @@
         <th scope="col">#</th>
         <th scope="col">PRODUCT ID</th>
         <th scope="col">PRODUCT NAME</th>
-        <th scope="col">PRICE</th>
         <th scope="col">&nbsp;</th>
       </tr>
     </thead>
@@ -21,8 +20,7 @@
         <th scope="row">{{forloop.counter}}</th>
         <td> {{ea.id}} </td>
         <td style="text-transform: capitalize;"> {{ea.item_name}} </td>
-        <td> {{ea.item_price}} </td>
-        <td></td>
+        <td><a href="{% url 'editPrice' ea.id %}" class="btn btn-danger ml-5">Change</a></td>
       </tr>
       {% endfor %}
     </tbody>

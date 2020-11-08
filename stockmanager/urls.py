@@ -13,5 +13,13 @@ urlpatterns=[
     path('purchasehistory',views.purchasehistory,name="purchasehistory"),
     path('saleshistory',views.retailhistory,name="saleshistory"),
     path('salesreturnhistory', views.salesreturnhistory,name="salesreturnhistory"),
-    path('purchasereturnhistory',views.purchasereturnhistory,name="purchasereturnhistory")
-]
+    path('purchasereturnhistory',views.purchasereturnhistory,name="purchasereturnhistory"),
+    path('addPurchase', views.addPurchase, name="addPurchase"),
+    path('returnPurchaseAdd',views.returnPurchaseAdd,name="returnPurchaseAdd"),
+    path('returnRetailPost',views.returnRetailPost,name="returnRetailPost"),
+    path('editPrice/<int:item_id>',views.editPrice,name="editPrice"),
+    path('savePrice',views.savePrice,name="savePrice"),
+    path('existingPurchase',views.existingPurchase,name="existingPurchase"),   
+    path('addExistingPurchase',views.addExistingPurchase,name="addExistingPurchase"),
+    path('salePost',views.salePost,name="salePost"),
+    ]

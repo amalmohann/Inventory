@@ -27,14 +27,14 @@
 
 <body style="background-color:#4ac29a";>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand ml-3" href="{% url 'index' %}">Inventory Manager</a>
+        <a class="navbar-brand ml-3" href="{% url 'index' %}"><i>inventory Manager</i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-7 mt-5">
             <img src="{% static 'indexbg.png'%}" alt="indexbg.png" class="img-responsive" height="72%" />
         </div>
         <div class="col-md-5">
@@ -46,7 +46,8 @@
             <div class="container">&nbsp</div>
             <div class="container">&nbsp</div>
             <div class="container">
-                <h1 class="text-center mt-5">STORE LOGIN</h1>
+                <h1 class="text-center mt-1"><i>inventory Manager</i></h1>
+                <h5 class="text-center mt-5 mb-4">store login</h5>
                 <form action="{% url 'loginPost' %}" method="POST">{% csrf_token %}
                     {% if error == True %}
                     <div class="row  mt-5">

@@ -3,28 +3,73 @@
 {% block content %}
 <h1 class="text-center mt-5">SALES RETURN</h1>
 <div class="container">
+    {% if submit == True %}
+    <div class="row  mt-5">
+        <div class="col-8 offset-2">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Return Accepted</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if return_period == True %}
+    <div class="row  mt-5">
+        <div class="col-8 offset-2">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Return Period is over!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if high_stock == True %}
+    <div class="row  mt-5">
+        <div class="col-8 offset-2">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Cannot Return Quantity more than Purchased!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <div class="card mt-20">
         <h5 class="card-title text-center mt-3">New Sales Return</h5>
         <div class="card-body">
-            <form action="">
+            <form action="{% url 'returnRetailPost' %}" method="POST">{% csrf_token %}
                 <div class="row">
-                    <div class="col-8 offset-2">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="item">Select Item:</label>
-                            <select class="form-control" id="item">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                            <label for="item">Select Sales ID:</label>
+                            <select class="form-control" id="retail_id" name="retail_id">
+                                {% for ea in s%}
+                                    <option value="{{ea.id}}">{{ ea.id }}</option>
+                                {% endfor %}
                             </select>
                           </div>
                     </div>
+                    <div class="col-md-6">
+                        <label for="item">&nbsp;</label>
+                        <input type="number" step="0.01" class="form-control" id="quantity" name="quantity" placeholder="QUANTITY"  required>
+                    </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col text-center">
-                        <button class="btn btn-primary" type="submit">ADD</button>
-                        <button class="btn btn-danger" type="reset">CLEAR</button>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="reason" name="reason" placeholder="REASON"
+                            required>
+                          </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <button class="btn btn-primary ml-5" type="submit">ADD</button>
+                        <button class="btn btn-danger ml-5" type="reset">CLEAR</button>
+                        <a href="{% url 'home' %}" class="btn btn-danger ml-5">HOME</a>
                     </div>
                 </div>
             </form>
@@ -34,7 +79,7 @@
         <div class="card-body text-center">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="{% url 'saleshistory' %}">view sales history</a>
+                    <a href="{% url 'saleshistory' %}">view Sales history</a>
                 </div>
                 <div class="col-md-6">
                     <a href="{% url 'salesreturnhistory' %}"> view return history </a>

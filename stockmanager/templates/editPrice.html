@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Edit Price {% endblock %}
+{% block content %}
+<h1 class="text-center mt-5">Change Price</h1>
+<div class="container">
+    {% if submit == True %}
+    <div class="row  mt-5">
+        <div class="col-8 offset-2">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Price Changed!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="card mt-20">
+        {% for item in i %}
+        <h5 class="card-title text-center mt-5">{{item.retail_id}}</h5>
+        <div class="card-body">
+            <form action="{% url 'savePrice' %}" method="POST">{% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <input type="hidden" name="item_id" value="{{item.id}}">
+                        <input type="hidden" name="retail_id" value="{{item.retail_id}}">
+                        <label for="">&nbsp;</label>
+                        <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="{{item.item_price}}"  required>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary ml-5" type="submit">ADD</button>
+                        <button class="btn btn-danger ml-5" type="reset">CLEAR</button>
+                        <a href="{% url 'pricing' %}" class="btn btn-danger ml-5">BACK</a>
+                    </div>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

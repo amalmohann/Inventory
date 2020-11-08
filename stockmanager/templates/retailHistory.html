@@ -9,36 +9,23 @@
         <th scope="col">SALES ID</th>
         <th scope="col">PRODUCT NAME</th>
         <th scope="col">RETAIL ID</th>
-        <th scope="col">BATCH</th>
         <th scope="col">DATE</th>
         <th scope="col">QUANTITY</th>
-        <th scope="col">PRICE</th>
         <th scope="col">TOTAL</th>
-        <th scope="col">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
+      {% for sales in s %}
       <tr>
-        <th scope="row">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th scope="row">{{forloop.counter}}</th>
+        <td> {{sales.id}} </td>
+        <td> {{sales.item_id}} </td>
+        <td> {{sales.retail_id}} </td>
+        <td> {{sales.sales_date}} </td>
+        <td> {{sales.sales_quantity}}</td>
+        <td> {{sales.total}} </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 {% endblock %}
